@@ -19,6 +19,7 @@ import setJWTToken from "./securityUtils/setJWTToken";
 import { SET_CURRENT_USER } from "./actions/types";
 import { logout } from "./actions/securityActions";
 import SecuredRoute from "./securityUtils/SecureRoute";
+import Footer from "./components/Layout/Footer";
 
 const jwtToken = localStorage.jwtToken;
 
@@ -30,12 +31,24 @@ if (jwtToken) {
         payload: decoded_jwtToken
     });
 
-    const currentTime = Date.now() / 1000;
-    if (decoded_jwtToken.exp < currentTime) {
-        store.dispatch(logout());
-        window.location.href = "/";
-    }
+    // const currentTime = Date.now() / 1000;
+    // if (decoded_jwtToken.exp < currentTime) {
+    //     window.alert("Time is out, logout");
+    //     store.dispatch(logout());
+    //     window.location.href = "/";
+    //
+    //
+    //
+    // }
 }
+
+let isLanding = <Header />;
+let showFooter = <Footer />;
+// if(Route.component !== {Landing} ) {
+//
+//     isLanding = (<Header/>);
+//     showFooter = (<Footer/>);
+// }
 
 class App extends Component {
     render() {
@@ -43,7 +56,7 @@ class App extends Component {
             <Provider store={store}>
                 <Router>
                     <div className="App">
-                        <Header />
+                        {isLanding}
                         {
                             //Public Routes
                         }
@@ -79,6 +92,8 @@ class App extends Component {
                                 component={UpdateProjectTask}
                             />
                         </Switch>
+                        {showFooter}
+
                     </div>
                 </Router>
             </Provider>

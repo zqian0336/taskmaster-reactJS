@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logout } from "../../actions/securityActions";
+import Icon from "../../assets/manager.svg"
 
 class Header extends Component {
     logout() {
@@ -11,6 +12,12 @@ class Header extends Component {
     }
     render() {
         const { validToken, user } = this.props.security;
+
+        const theIcon = {
+            height: "1.5rem",
+            width : "1.5rem",
+            marginRight: "10px"
+        };
 
         const userIsAuthenticated = (
             <div className="collapse navbar-collapse" id="mobile-nav">
@@ -68,10 +75,13 @@ class Header extends Component {
         }
 
         return (
-            <nav className="navbar navbar-expand-sm navbar-dark bg-primary mb-4">
+            // mb-4
+            <nav className="navbar navbar-expand-sm navbar-light">
                 <div className="container">
+
                     <Link className="navbar-brand" to="/">
-                        Personal Project Management Tool
+                        <img style={theIcon} src={Icon} />
+                        TaskMaster
                     </Link>
                     <button
                         className="navbar-toggler"

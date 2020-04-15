@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import classnames from "classnames";
 import { login } from "../../actions/securityActions";
+import {Link} from "react-router-dom";
 
 class Login extends Component {
     constructor() {
@@ -50,16 +51,16 @@ class Login extends Component {
     render() {
         const { errors } = this.state;
         return (
-            <div className="login">
+            <div className="login theFont theHeight">
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-8 m-auto">
+                        <div className="col-md-6 m-auto">
                             <h1 className="display-4 text-center">Log In</h1>
                             <form onSubmit={this.onSubmit}>
                                 <div className="form-group">
                                     <input
                                         type="text"
-                                        className={classnames("form-control form-control-lg", {
+                                        className={classnames("form-control ", {
                                             "is-invalid": errors.username
                                         })}
                                         placeholder="Email Address"
@@ -74,7 +75,7 @@ class Login extends Component {
                                 <div className="form-group">
                                     <input
                                         type="password"
-                                        className={classnames("form-control form-control-lg", {
+                                        className={classnames("form-control ", {
                                             "is-invalid": errors.password
                                         })}
                                         placeholder="Password"
@@ -86,7 +87,8 @@ class Login extends Component {
                                         <div className="invalid-feedback">{errors.password}</div>
                                     )}
                                 </div>
-                                <input type="submit" className="btn btn-info btn-block mt-4" />
+                                <input type="submit" className="btn btn-outline-dark btn-block mb-4" />
+                                <Link className="theLinkColor" to={"/"}>Go Back</Link>
                             </form>
                         </div>
                     </div>

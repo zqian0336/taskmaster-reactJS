@@ -57,24 +57,22 @@ class AddProjectTask extends Component {
         const { id } = this.props.match.params;
         const { errors } = this.state;
         return (
-            <div className="add-PBI">
+            <div className="add-PBI theHeight theFont pt-5 pd-5">
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-8 m-auto">
-                            <Link to={`/projectBoard/${id}`} className="btn btn-light">
-                                Back to Project Board
-                            </Link>
-                            <h4 className="display-4 text-center">Add Project Task</h4>
-                            <p className="lead text-center">Project Name + Project Code</p>
+                        <div className="col-md-6 m-auto">
+
+                            <h4 className="display-4 text-center">Add Mission Task</h4>
+                            <p className="lead text-center">Mission Name + Mission Code</p>
                             <form onSubmit={this.onSubmit}>
                                 <div className="form-group">
                                     <input
                                         type="text"
-                                        className={classnames("form-control form-control-lg", {
+                                        className={classnames("form-control", {
                                             "is-invalid": errors.summary
                                         })}
                                         name="summary"
-                                        placeholder="Project Task summary"
+                                        placeholder="Mission Task summary"
                                         value={this.state.summary}
                                         onChange={this.onChange}
                                     />
@@ -84,7 +82,7 @@ class AddProjectTask extends Component {
                                 </div>
                                 <div className="form-group">
                   <textarea
-                      className="form-control form-control-lg"
+                      className="form-control "
                       placeholder="Acceptance Criteria"
                       name="acceptanceCriteria"
                       value={this.state.acceptanceCriteria}
@@ -95,7 +93,7 @@ class AddProjectTask extends Component {
                                 <div className="form-group">
                                     <input
                                         type="date"
-                                        className="form-control form-control-lg"
+                                        className="form-control"
                                         name="dueDate"
                                         value={this.state.dueDate}
                                         onChange={this.onChange}
@@ -103,7 +101,7 @@ class AddProjectTask extends Component {
                                 </div>
                                 <div className="form-group">
                                     <select
-                                        className="form-control form-control-lg"
+                                        className="form-control "
                                         name="priority"
                                         value={this.state.priority}
                                         onChange={this.onChange}
@@ -117,7 +115,7 @@ class AddProjectTask extends Component {
 
                                 <div className="form-group">
                                     <select
-                                        className="form-control form-control-lg"
+                                        className="form-control"
                                         name="status"
                                         value={this.state.status}
                                         onChange={this.onChange}
@@ -131,8 +129,14 @@ class AddProjectTask extends Component {
 
                                 <input
                                     type="submit"
-                                    className="btn btn-primary btn-block mt-4"
+                                    className="btn btn-outline-dark btn-block mt-4 mb-3"
                                 />
+                                <Link
+                                    to={`/projectBoard/${id}`}
+                                    className="theFont theLinkColor text-center "
+                                >
+                                    Back to Mission Board
+                                </Link>
                             </form>
                         </div>
                     </div>

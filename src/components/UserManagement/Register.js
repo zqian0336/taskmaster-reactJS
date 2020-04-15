@@ -3,6 +3,7 @@ import { createNewUser } from "../../actions/securityActions";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import classnames from "classnames";
+import {Link} from "react-router-dom";
 
 class Register extends Component {
     constructor() {
@@ -50,17 +51,17 @@ class Register extends Component {
     render() {
         const { errors } = this.state;
         return (
-            <div className="register">
+            <div className="register theFont theHeight">
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-8 m-auto">
+                        <div className="col-md-6 m-auto">
                             <h1 className="display-4 text-center">Sign Up</h1>
                             <p className="lead text-center">Create your Account</p>
                             <form onSubmit={this.onSubmit}>
                                 <div className="form-group">
                                     <input
                                         type="text"
-                                        className={classnames("form-control form-control-lg", {
+                                        className={classnames("form-control", {
                                             "is-invalid": errors.fullName
                                         })}
                                         placeholder="Full Name"
@@ -75,7 +76,7 @@ class Register extends Component {
                                 <div className="form-group">
                                     <input
                                         type="text"
-                                        className={classnames("form-control form-control-lg", {
+                                        className={classnames("form-control", {
                                             "is-invalid": errors.username
                                         })}
                                         placeholder="Email Address (Username)"
@@ -90,7 +91,7 @@ class Register extends Component {
                                 <div className="form-group">
                                     <input
                                         type="password"
-                                        className={classnames("form-control form-control-lg", {
+                                        className={classnames("form-control", {
                                             "is-invalid": errors.password
                                         })}
                                         placeholder="Password"
@@ -105,7 +106,7 @@ class Register extends Component {
                                 <div className="form-group">
                                     <input
                                         type="password"
-                                        className={classnames("form-control form-control-lg", {
+                                        className={classnames("form-control", {
                                             "is-invalid": errors.confirmPassword
                                         })}
                                         placeholder="Confirm Password"
@@ -119,7 +120,8 @@ class Register extends Component {
                                         </div>
                                     )}
                                 </div>
-                                <input type="submit" className="btn btn-info btn-block mt-4" />
+                                <input type="submit" className=" btn btn-outline-dark btn-block mb-4" />
+                                <Link className="theLinkColor" to={"/"}>Go Back</Link>
                             </form>
                         </div>
                     </div>

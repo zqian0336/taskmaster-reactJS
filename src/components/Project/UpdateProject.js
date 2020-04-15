@@ -3,6 +3,7 @@ import { getProject, createProject } from "../../actions/projectActions";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import classnames from "classnames";
+import {Link} from "react-router-dom";
 
 class UpdateProject extends Component {
     //set state
@@ -72,17 +73,17 @@ class UpdateProject extends Component {
     render() {
         const { errors } = this.state;
         return (
-            <div className="project">
+            <div className="project theFont theHeight">
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-8 m-auto">
+                        <div className="col-md-8 m-auto pt-5 pb-5">
                             <h5 className="display-4 text-center">Update Project form</h5>
                             <hr />
                             <form onSubmit={this.onSubmit}>
                                 <div className="form-group">
                                     <input
                                         type="text"
-                                        className={classnames("form-control form-control-lg", {
+                                        className={classnames("form-control", {
                                             "is-invalid": errors.projectName
                                         })}
                                         placeholder="Project Name"
@@ -97,7 +98,7 @@ class UpdateProject extends Component {
                                 <div className="form-group">
                                     <input
                                         type="text"
-                                        className="form-control form-control-lg"
+                                        className="form-control"
                                         placeholder="Unique Project ID"
                                         name="projectIdentifier"
                                         value={this.state.projectIdentifier}
@@ -107,13 +108,15 @@ class UpdateProject extends Component {
                                 </div>
                                 <div className="form-group">
                   <textarea
-                      className={classnames("form-control form-control-lg", {
+                      className={classnames("form-control", {
                           "is-invalid": errors.description
                       })}
                       placeholder="Project Description"
                       name="description"
                       onChange={this.onChange}
                       value={this.state.description}
+                      cols = "30"
+                      rows="5"
                   />
                                     {errors.description && (
                                         <div className="invalid-feedback">{errors.description}</div>
@@ -123,7 +126,7 @@ class UpdateProject extends Component {
                                 <div className="form-group">
                                     <input
                                         type="date"
-                                        className="form-control form-control-lg"
+                                        className="form-control "
                                         name="start_date"
                                         value={this.state.start_date}
                                         onChange={this.onChange}
@@ -133,7 +136,7 @@ class UpdateProject extends Component {
                                 <div className="form-group">
                                     <input
                                         type="date"
-                                        className="form-control form-control-lg"
+                                        className="form-control "
                                         name="end_date"
                                         value={this.state.end_date}
                                         onChange={this.onChange}
@@ -142,8 +145,15 @@ class UpdateProject extends Component {
 
                                 <input
                                     type="submit"
-                                    className="btn btn-primary btn-block mt-4"
+                                    className="btn btn-info btn-block mt-4 mb-4"
                                 />
+                                <Link
+                                    to={`/projectBoard/`}
+                                    className="theFont theLinkColor text-center "
+                                >
+                                    Go Back
+                                </Link>
+
                             </form>
                         </div>
                     </div>

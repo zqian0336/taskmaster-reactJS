@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createProject } from "../../actions/projectActions";
 import classnames from "classnames";
+import {Link} from "react-router-dom";
 
 class AddProject extends Component {
     constructor() {
@@ -49,17 +50,17 @@ class AddProject extends Component {
 
         return (
             <div>
-                <div className="project">
+                <div className="project theHeight theFont pt-5 pb-5">
                     <div className="container">
                         <div className="row">
-                            <div className="col-md-8 m-auto">
-                                <h5 className="display-4 text-center">Create Project form</h5>
+                            <div className="col-md-6 m-auto">
+                                <h5 className="display-4 text-center">Create Your Mission</h5>
                                 <hr />
                                 <form onSubmit={this.onSubmit}>
                                     <div className="form-group">
                                         <input
                                             type="text"
-                                            className={classnames("form-control form-control-lg", {
+                                            className={classnames("form-control ", {
                                                 "is-invalid": errors.projectName
                                             })}
                                             placeholder="Project Name"
@@ -76,7 +77,7 @@ class AddProject extends Component {
                                     <div className="form-group">
                                         <input
                                             type="text"
-                                            className={classnames("form-control form-control-lg", {
+                                            className={classnames("form-control ", {
                                                 "is-invalid": errors.projectIdentifier
                                             })}
                                             placeholder="Unique Project ID"
@@ -92,13 +93,14 @@ class AddProject extends Component {
                                     </div>
                                     <div className="form-group">
                     <textarea
-                        className={classnames("form-control form-control-lg", {
+                        className={classnames("form-control ", {
                             "is-invalid": errors.description
                         })}
                         placeholder="Project Description"
                         name="description"
                         value={this.state.description}
                         onChange={this.onChange}
+                        rows="5"
                     />
                                         {errors.description && (
                                             <div className="invalid-feedback">
@@ -110,7 +112,7 @@ class AddProject extends Component {
                                     <div className="form-group">
                                         <input
                                             type="date"
-                                            className="form-control form-control-lg"
+                                            className="form-control "
                                             name="start_date"
                                             value={this.state.start_date}
                                             onChange={this.onChange}
@@ -120,7 +122,7 @@ class AddProject extends Component {
                                     <div className="form-group">
                                         <input
                                             type="date"
-                                            className="form-control form-control-lg"
+                                            className="form-control "
                                             name="end_date"
                                             value={this.state.end_date}
                                             onChange={this.onChange}
@@ -129,8 +131,14 @@ class AddProject extends Component {
 
                                     <input
                                         type="submit"
-                                        className="btn btn-primary btn-block mt-4"
+                                        className="btn btn-outline-dark btn-block mt-4 mb-4"
                                     />
+                                    <Link
+                                        to={`/projectBoard/`}
+                                        className="theFont theLinkColor text-center "
+                                    >
+                                        Go Back
+                                    </Link>
                                 </form>
                             </div>
                         </div>

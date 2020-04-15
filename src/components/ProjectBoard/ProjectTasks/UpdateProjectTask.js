@@ -94,17 +94,12 @@ class UpdateProjectTask extends Component {
     render() {
         const { errors } = this.state;
         return (
-            <div className="add-PBI">
-                <div className="container">
+            <div className="add-PBI theHeight">
+                <div className="container theFont">
                     <div className="row">
-                        <div className="col-md-8 m-auto">
-                            <Link
-                                to={`/projectBoard/${this.state.projectIdentifier}`}
-                                className="btn btn-light"
-                            >
-                                Back to Project Board
-                            </Link>
-                            <h4 className="display-4 text-center">Update Project Task</h4>
+                        <div className="col-md-6 m-auto pt-5 pb-5">
+
+                            <h2 className=" text-center">Update Mission Task</h2>
                             <p className="lead text-center">
                                 Project Name: {this.state.projectIdentifier} | Project Task ID:{" "}
                                 {this.state.projectSequence}{" "}
@@ -113,7 +108,7 @@ class UpdateProjectTask extends Component {
                                 <div className="form-group">
                                     <input
                                         type="text"
-                                        className={classnames("form-control form-control-lg", {
+                                        className={classnames("form-control", {
                                             "is-invalid": errors.summary
                                         })}
                                         name="summary"
@@ -127,18 +122,19 @@ class UpdateProjectTask extends Component {
                                 </div>
                                 <div className="form-group">
                   <textarea
-                      className="form-control form-control-lg"
-                      placeholder="Acceptance Criteria"
+                      className="form-control"
+                      placeholder="Acceptance Criteria or Description"
                       name="acceptanceCriteria"
                       value={this.state.acceptanceCriteria}
                       onChange={this.onChange}
+                      rows="5"
                   />
                                 </div>
                                 <h6>Due Date</h6>
                                 <div className="form-group">
                                     <input
                                         type="date"
-                                        className="form-control form-control-lg"
+                                        className="form-control"
                                         name="dueDate"
                                         value={this.state.dueDate}
                                         onChange={this.onChange}
@@ -146,7 +142,7 @@ class UpdateProjectTask extends Component {
                                 </div>
                                 <div className="form-group">
                                     <select
-                                        className="form-control form-control-lg"
+                                        className="form-control "
                                         name="priority"
                                         value={this.state.priority}
                                         onChange={this.onChange}
@@ -160,7 +156,7 @@ class UpdateProjectTask extends Component {
 
                                 <div className="form-group">
                                     <select
-                                        className="form-control form-control-lg"
+                                        className="form-control "
                                         name="status"
                                         value={this.state.status}
                                         onChange={this.onChange}
@@ -174,8 +170,14 @@ class UpdateProjectTask extends Component {
 
                                 <input
                                     type="submit"
-                                    className="btn btn-primary btn-block mt-4"
+                                    className="btn btn-outline-dark btn-block mt-4 mb-3"
                                 />
+                                <Link
+                                    to={`/projectBoard/${this.state.projectIdentifier}`}
+                                    className="theFont theLinkColor text-center "
+                                >
+                                    Back to Mission Board
+                                </Link>
                             </form>
                         </div>
                     </div>
